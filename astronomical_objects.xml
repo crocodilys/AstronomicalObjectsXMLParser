@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<astronomical_objects>
+	<star system_name="SolarSystem">
+		<name>Sun</name>
+		<type>dwarf</type>
+		<weight>123</weight>
+	</star> 
+	<star system_name="SolarSystem">
+		<name>Sun2</name>
+		<type>dwarf</type>
+		<weight>1234</weight>
+	</star>
+	<planet system_name="SolarSystem">
+		<name>Earth</name>
+		<type>earth_like</type>
+		<weight>1</weight>
+		<satellites>
+			<satellite>
+				<name>Moon</name>
+				<weight>0.5</weight>
+				<satellites>
+					<satellite>
+						<name>Apollo</name>
+						<weight>0.000001</weight>
+					</satellite>
+				</satellites>
+			</satellite>
+		</satellites>
+	</planet> 
+</astronomical_objects>
