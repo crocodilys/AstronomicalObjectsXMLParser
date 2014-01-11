@@ -49,17 +49,16 @@ public class Parser
 		{
 			StarType type = getStarTypeByName(element.getElementsByTagName("type").item(0).getTextContent());
 			Star star = new Star(name, weight, type, systemName);
-			System.out.println(star.toString());
+			//System.out.println(star.toString());
 			return star;
 		}
 		else if (element.getNodeName() == "planet")
-		{
-			
+		{			
 			PlanetType type = getPlanetTypeByName(element.getElementsByTagName("type").item(0).getTextContent());
 			Planet planet = new Planet(name, weight, type, systemName, null);
 			ArrayList<Satellite> satellites = getSatellitesByElement(element, planet);
 			planet.setSatellites(satellites);
-			System.out.println(planet.toString());
+			//System.out.println(planet.toString());
 			return planet;
 		}
 		else if (element.getNodeName() == "satellite")
@@ -119,14 +118,10 @@ public class Parser
 	private ArrayList<Satellite> getSatellitesByElement(Element element, AstronomicalObject centralBody)
 	{
 		NodeList list = element.getElementsByTagName("satellites");
-		if (list.getLength() == 0)
-		{
-			return null;
-		}
-		else
+		ArrayList<Satellite> satellites = new ArrayList<Satellite>();
+		if (list.getLength() != 0)
 		{
 			list = list.item(0).getChildNodes();
-			ArrayList<Satellite> satellites = new ArrayList<Satellite>();
 			for (int i = 0; i < list.getLength(); i++) 
 			{
 				Node node = list.item(i);
@@ -135,10 +130,10 @@ public class Parser
 					Satellite satellite = (Satellite) parseNode(node);
 					satellite.setCentralBody(centralBody);
 					satellites.add(satellite);
-					System.out.println(satellite.toString());
+					//System.out.println(satellite.toString());
 				}
 			}
-			return satellites;
 		}
+		return satellites;
 	}
 }

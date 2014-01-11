@@ -12,19 +12,13 @@ public class Satellite extends AstronomicalObject
 	public Satellite()
 	{
 		super();
+		satellites = new ArrayList<Satellite>();
 	}
-	
-	/*public Satellite(String name, double weight, AstronomicalObject centralBody, 
-					ArrayList<Satellite> satellites)
-	{
-		super(name, weight, centralBody.getSystemName());
-		this.centralBody = centralBody;
-		this.satellites = satellites;
-	}*/
 	
 	public Satellite(String name, double weight)
 	{
 		super(name, weight, null);
+		satellites = new ArrayList<Satellite>();
 	}
 
 	@Override
